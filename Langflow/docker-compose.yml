@@ -1,0 +1,19 @@
+services:
+  langflow:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    platform: linux/amd64
+    env_file:
+      - ./.env
+    volumes:
+      - ./tunnel-client-certs:/sp/inputs/input-0002
+      - ./sp-certs:/sp/certs
+      - ./langflow_data/output:/sp/output  
+      - ./langflow_data/cache:/sp/inputs/cache
+    environment:
+      # Standard settings
+      - LOG_LEVEL=info
+      - INPUT_DATA_FOLDER=/sp/inputs
+      - OUTPUT_DATA_FOLDER=/sp/output
+      - LANGFLOW_PATH=/home/node/app/langflow
