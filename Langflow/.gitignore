@@ -61,3 +61,6 @@ temp/
 # Test files
 docker-compose-simple.yml
 .claude
+
+# Documentation (auto-generated)
+CLAUDE.md
